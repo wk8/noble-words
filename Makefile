@@ -3,7 +3,7 @@ SHELL := /usr/bin/env bash
 activate: venv
 	@ [ -f activate ] || (ln -s venv/bin/activate . && $(MAKE) requirements)
 
-requirements: activate
+requirements: activate venv
 	. activate && venv/bin/pip install -r requirements.txt
 
 venv:
