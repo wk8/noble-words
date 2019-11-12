@@ -43,12 +43,14 @@ class Grid(object):
     def knight_moves(self, i, j):
         for dx, dy in ((1, 2), (2, 1)):
             for multiplier_dx in (-1, 1):
+                x = i + dx * multiplier_dx
+                if x < 0 or x >= self.height:
+                    continue
+
                 for multiplier_dy in (-1, 1):
-                    x = i + dx * multiplier_dx
                     y = j + dy * multiplier_dy
 
-                    if x >= 0 and x < self.height \
-                            and y >= 0 and y < self.width:
+                    if y >= 0 and y < self.width:
                         yield x, y
 
     @classmethod
